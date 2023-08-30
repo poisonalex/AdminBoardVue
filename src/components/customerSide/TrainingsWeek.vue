@@ -45,20 +45,33 @@
           </div>
         </span>
       </div>
-      <button>Speichern</button>
+      <button @click="saveWeek">Speichern</button>
     </div>
   </div>
+  <Alert
+    :alertName="headlineAlert"
+    @closeAlert="alertClose"
+    @confirmeTask="taskConfirme()"
+    v-if="alert"
+  />
+  <SuccessAlert v-if="showSuccess" />
 </template>
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faPersonRunning, faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import Alert from "../Alert.vue";
+import SuccessAlert from "@/components/SuccessAlert.vue";
 
 export default {
   props: { trainingsWeekData: Array },
-  components: { FontAwesomeIcon },
+  components: { FontAwesomeIcon, Alert, SuccessAlert },
   data() {
     return {
+      headlineAlert: "Willst du den neuen Plan speichern?",
+      alert: false,
+      showSuccess: false,
+
       week: [
         { day: "Montag" },
         { day: "Dienstag" },
@@ -89,6 +102,17 @@ export default {
     };
   },
   methods: {
+    saveWeek() {
+      this.alert = !this.alert;
+    },
+    taskConfirme() {
+      this.alert = !this.alert;
+      this.showSuccess = true;
+      //hier speichern vom neuen Plan
+      this.timer = setTimeout(() => {
+        this.showSuccess = false;
+      }, 3000); // 3 seconds in milliseconds
+    },
     getExerciseForDay(day) {
       if (this.trainingsWeekData && this.trainingsWeekData.trainingsweek) {
         const index = this.week.findIndex((item) => item.day === day);

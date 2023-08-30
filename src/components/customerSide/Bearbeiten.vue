@@ -1,21 +1,64 @@
 <template>
   <div class="edit-container">
     <p>Bearbeiten:</p>
-    <form class="border">
+    <form class="border" @submit.prevent="submitForm">
       <input type="file" name="" id="" class="upload" />
-      <button>Speichern</button>
+      <button @click="saveNewPlan">Speichern</button>
     </form>
     <span class="border">
-      <button>
+      <button @click="downloadCheckin">
         CheckIn Pdf-download
         <font-awesome-icon icon="fa-solid fa-download" class="fas" />
       </button>
     </span>
   </div>
+  <Alert
+    :alertName="headlineAlert"
+    @closeAlert="alertClose"
+    @confirmeTask="taskConfirme()"
+    v-if="alert"
+  />
+  <SuccessAlert v-if="showSuccess" />
 </template>
 
 <script>
-export default {};
+import Alert from "../Alert.vue";
+import SuccessAlert from "@/components/SuccessAlert.vue";
+
+export default {
+  components: { Alert, SuccessAlert },
+  data() {
+    return {
+      headlineAlert: "Willst du einen neuen Plan hochladen?",
+      alert: false,
+      showSuccess: false,
+    };
+  },
+  methods: {
+    saveNewPlan() {
+      this.alert = !this.alert;
+    },
+    downloadCheckin() {
+      this.showSuccess = true;
+      //hier pdf download
+      this.timer = setTimeout(() => {
+        this.showSuccess = false;
+      }, 3000); // 3 seconds in milliseconds
+    },
+    //Alert Struckutr
+    alertClose() {
+      this.alert = !this.alert;
+    },
+    taskConfirme() {
+      this.alert = !this.alert;
+      this.showSuccess = true;
+      //hier speichern vom neuen Plan
+      this.timer = setTimeout(() => {
+        this.showSuccess = false;
+      }, 3000); // 3 seconds in milliseconds
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
