@@ -1,7 +1,7 @@
 <template>
   <div class="success">
     <div class="notification-body">
-      <i class="fa-solid fa-circle-check"></i> Fertig
+      <font-awesome-icon icon="fa-solid fa-circle-check" class="i" /> Fertig
     </div>
     <div class="notification-progress"></div>
   </div>
@@ -20,10 +20,10 @@ export default {
   position: absolute;
   bottom: 0;
   text-align: center;
-  width: 35%;
-  border-radius: 1em;
-  background-image: linear-gradient(to right, #00688b 30%, #035671 70%);
-  color: white;
+  width: max-content;
+  border-radius: 6px;
+  background: #313e2c;
+  color: #aaec8a;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   transform: translateY(30px);
   opacity: 0;
@@ -36,11 +36,11 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
-  padding: 1em;
+  padding: 16px 8px;
+  gap: 0.5rem;
 }
 
-.notification-body i {
+.i {
   color: #05d62b;
 }
 
@@ -50,7 +50,7 @@ export default {
   left: 8px;
   height: 3px;
   width: calc(100% - 16px);
-  background: linear-gradient(to right, #757575, #05d62b);
+  background: linear-gradient(to right, #313e2c, #aaec8a);
   border-radius: inherit;
   transform: scaleX(0);
   transform-origin: left;

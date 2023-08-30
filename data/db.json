@@ -3,10 +3,55 @@
     {
       "name": "Paul Ehrling",
       "id": 0,
-      "trainingsweek": ["Krafttraining", "Ausdauertraining"]
+      "trainingsweek": [
+        "",
+        "Krafttraining",
+        "",
+        "Krafttraining",
+        "Krafttraining",
+        "",
+        ""
+      ],
+      "messages": ["Du kannst... verbessern"]
     },
-    { "name": "Alex Ehrling", "id": 1 },
-    { "name": "Mario Super", "id": 2 },
-    { "name": "James Bond", "id": 3 }
+    {
+      "name": "Alex Ehrling",
+      "id": 1,
+      "trainingsweek": [
+        "",
+        "Krafttraining",
+        "Fußball",
+        "Krafttraining",
+        "",
+        "Krafttraining",
+        "Fußball"
+      ]
+    },
+    {
+      "name": "Mario Super",
+      "id": 2,
+      "trainingsweek": [
+        "Krafttraining",
+        "Ausdauertraining",
+        "",
+        "Krafttraining",
+        "",
+        "",
+        "Krafttraining"
+      ]
+    },
+    {
+      "name": "James Bond",
+      "id": 3,
+      "trainingsweek": [
+        "Schwimmtraining",
+        "Krafttraining",
+        "",
+        "Ausdauertraining",
+        "Krafttraining",
+        "Fahrradtraining",
+        ""
+      ]
+    }
   ]
 }

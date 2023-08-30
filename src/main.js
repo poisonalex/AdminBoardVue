@@ -27,6 +27,13 @@ import { faCalendarWeek } from "@fortawesome/free-solid-svg-icons";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
+import { faFilePen } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
 library.add(
@@ -48,6 +55,13 @@ library.add(
   faDeleteLeft,
   faChevronDown,
   faChevronUp,
+  faCircleCheck,
+  faPersonRunning,
+  faFilePen,
+  faComment,
+  faDownload,
+  faAppleWhole,
+  faBook,
 );
 
 createApp(App)

@@ -18,7 +18,19 @@
       <router-link to="/createcustomer" class="icon">
         <font-awesome-icon icon="fa-solid fa-plus" class="icon" />
       </router-link>
-      <NavBarSideLinks to="/createcustomer"> Create </NavBarSideLinks>
+      <NavBarSideLinks to="/createcustomer"> Create Kunde </NavBarSideLinks>
+    </span>
+    <span class="links">
+      <router-link to="/" class="icon">
+        <font-awesome-icon icon="fa-solid fa-apple-whole" class="icon" />
+      </router-link>
+      <NavBarSideLinks to=""> Ernährung </NavBarSideLinks>
+    </span>
+    <span class="links">
+      <router-link to="/" class="icon">
+        <font-awesome-icon icon="fa-solid fa-book" class="icon" />
+      </router-link>
+      <NavBarSideLinks to=""> Übungslexicon </NavBarSideLinks>
     </span>
     <span class="links">
       <router-link to="/" class="icon">
@@ -76,7 +88,7 @@ $active-color: #035671;
   float: left;
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0;
   gap: 1rem;
   background: $bg-color;
   border-right: $hover-color solid;
@@ -108,8 +120,8 @@ $active-color: #035671;
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 0rem 0.5rem;
-    border-radius: 24px;
+    padding: 0;
+    width: 100%;
     &:hover {
       background: $hover-color;
     }
@@ -117,6 +129,7 @@ $active-color: #035671;
   .icon {
     flex-shrink: 0;
     margin-right: 10px;
+    margin-left: 5px;
     width: 25px;
     color: white;
     text-decoration: none;

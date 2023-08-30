@@ -3,15 +3,21 @@
   <div class="container">
     <header>
       <h2>{{ customers.name }}</h2>
-      <NavBarStraitVue @toggleContainer="showContainer" />
+      <Navbar
+        @showTrainingsweek="toggleTrainingsweek"
+        @showMessages="toggleMessages"
+        @showEdit="toggleEdit"
+      />
     </header>
     <div class="box">
-      <div class="section" v-if="!containerShowen">
-        <h2>Trainingswoche</h2>
-        <p>{{ customers.trainingsweek }}</p>
+      <div class="section" v-if="containerTrainingsweek">
+        <TrainingsWeek :trainingsWeekData="customers" />
       </div>
-      <div class="section" v-if="containerShowen">
-        <MessagesVue />
+      <div class="section" v-if="containerMessages">
+        <Messages :messagesData="customers" />
+      </div>
+      <div class="section" v-if="containerEdit">
+        <Bearbeiten />
       </div>
     </div>
   </div>
@@ -19,18 +25,28 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import NavBarStraitVue from "@/components/customerSide/NavBarStrait.vue";
-import MessagesVue from "@/components/customerSide/Messages.vue";
+import Navbar from "@/components/customerSide/Navbar.vue";
+import Messages from "@/components/customerSide/Messages.vue";
+import TrainingsWeek from "@/components/customerSide/TrainingsWeek.vue";
+import Bearbeiten from "@/components/customerSide/Bearbeiten.vue";
 
 export default {
-  props: ["id"],
-  components: { Header, NavBarStraitVue, MessagesVue },
+  components: {
+    Header,
+    Navbar,
+    Messages,
+    TrainingsWeek,
+    Bearbeiten,
+  },
   data() {
     return {
       customerId: this.$route.params.id,
       customers: [],
       headline: "Training zum Bearbeiten",
-      containerShowen: false,
+      containerTrainingsweek: true,
+      containerMessages: false,
+      containerEdit: false,
+      activeSection: "trainings", // Anfangsabschnitt (kann auf "messages" oder "section3" geändert werden)
     };
   },
   created() {
@@ -48,8 +64,20 @@ export default {
         console.error("Fehler beim Abrufen der Kundendaten:", error);
       }
     },
-    showContainer() {
-      this.containerShowen = !this.containerShowen;
+    toggleTrainingsweek() {
+      this.containerTrainingsweek = true;
+      this.containerMessages = false;
+      this.containerEdit = false;
+    },
+    toggleMessages() {
+      this.containerTrainingsweek = false;
+      this.containerMessages = true;
+      this.containerEdit = false;
+    },
+    toggleEdit() {
+      this.containerTrainingsweek = false;
+      this.containerMessages = false;
+      this.containerEdit = true;
     },
   },
 };
@@ -71,11 +99,14 @@ export default {
 
   header {
     position: relative;
-    height: 8rem;
+    @include center();
+    flex-direction: column;
+    height: 9rem;
     width: 100%;
     background: #646464;
 
     h2 {
+      width: 100%;
       border-bottom: #757575 solid;
     }
   }
@@ -83,8 +114,9 @@ export default {
   .box {
     margin-top: 1rem;
     padding: 1rem 0;
+    height: 20rem;
     width: 100%;
-    background: #757575;
+    border: none;
     border-radius: 24px;
 
     .section {

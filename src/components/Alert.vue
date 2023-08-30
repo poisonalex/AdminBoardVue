@@ -62,7 +62,7 @@ export default {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    color: white;
+    color: black;
 
     .close {
       position: absolute;

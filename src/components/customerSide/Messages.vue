@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="message-container">
     <header>
       <h3>Nachrichten</h3>
       <font-awesome-icon icon="fa-solid fa-paper-plane" class="i" />
@@ -10,13 +10,12 @@
         id=""
         cols="30"
         rows="10"
-        v-model="messages"
+        v-model="newMessage"
       ></textarea>
-      <button @click="sendMessage">
+      <button @click="addNewMessage">
         <font-awesome-icon icon="fa-solid fa-paper-plane" />
       </button>
     </form>
-    <!--Next steps-->
     <footer>
       <button
         class="toggle-messages"
@@ -34,34 +33,38 @@
         <span>Nachrichten anzeigen</span>
         <font-awesome-icon icon="fa-solid fa-chevron-up" />
       </button>
-      <div
-        class="alte-nachtichten"
-        v-for="(message, index) in oldMessage"
-        :key="message.text"
-        v-if="showMessages"
-      >
-        <span>
-          <h4>
-            Datum: --.--.--
-            <button @click="deleteOlsMessage(index)">
-              <font-awesome-icon icon="fa-solid fa-delete-left" />
-            </button>
-          </h4>
-          <p>{{ message.text }}</p>
-        </span>
-      </div>
+      <span v-if="showMessages">
+        <div
+          class="alte-nachtichten"
+          v-for="(user, userIndex) in messagesData.messages"
+          :key="user.id"
+        >
+          <span
+            v-for="(message, messageIndex) in messagesData.messages"
+            :key="messageIndex"
+          >
+            <h4>
+              Datum: --.--.--
+              <button @click="deleteOldMessage(userIndex, messageIndex)">
+                <font-awesome-icon icon="fa-solid fa-delete-left" />
+              </button>
+            </h4>
+            <p>
+              {{ message }}
+            </p>
+          </span>
+        </div>
+      </span>
     </footer>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["messages", "oldMessagesContainer"],
+  props: { messagesData: Array },
   data() {
     return {
-      messages: "",
-      oldMessage: [{ text: "Hallo" }],
-      oldMessagesContainer: this.oldMessage,
+      newMessage: "",
       showMessages: false,
     };
   },
@@ -69,14 +72,7 @@ export default {
     toggleMessages() {
       this.showMessages = !this.showMessages;
     },
-    //--Next Steps--
-    sendMessage() {
-      this.$emit("sendMessage", this.messages);
-      if (this.messages !== "") {
-        this.oldMessage.push({ text: this.messages });
-        this.messages = "";
-      }
-    },
+    addNewMessage() {},
     deleteOlsMessage(index) {
       this.oldMessage.splice(index, 1);
     },
@@ -90,16 +86,19 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.container {
+.message-container {
   @include center();
+  flex-direction: column;
+  padding: 1rem 1rem;
   width: 100%;
-  border: none;
+  background: #757575;
+  border-radius: 24px;
 
   header {
     @include center();
     justify-content: space-between;
     padding: 0 1rem;
-    width: 100%;
+    width: 90%;
     border-bottom: #4d4d4d solid;
 
     h3 {
@@ -118,7 +117,7 @@ export default {
     margin-top: 0.5rem;
     gap: 0.5rem;
     height: 7rem;
-    width: 100%;
+    width: 90%;
     background: #568259;
     border-radius: 24px;
 
@@ -167,6 +166,10 @@ export default {
       span {
         width: 100%;
       }
+    }
+
+    span {
+      width: 100%;
     }
 
     .alte-nachtichten {

@@ -11,21 +11,26 @@
         <p>{{ customer.name }}</p>
       </span>
       <span class="customer">
-        <button>
-          <router-link :to="{ name: 'customer', params: { id: customer.id } }">
-            Zum Kunden
-          </router-link>
-        </button>
+        <router-link
+          :to="{ name: 'customer', params: { id: customer.id } }"
+          class="link"
+        >
+          Zum Kunden
+        </router-link>
       </span>
       <span class="customer options">
         <div class="options-container" v-if="showOptions[index]">
-          <button name="loeschen" @click="deleteCustomer(index)">
+          <button
+            name="loeschen"
+            @click="deleteCustomer(index)"
+            class="options-button"
+          >
             <font-awesome-icon icon="fa-solid fa-trash" />
           </button>
-          <button name="bearbeiten">
+          <button name="bearbeiten" class="options-button">
             <font-awesome-icon icon="fa-solid fa-pen-to-square" />
           </button>
-          <button class="options" @click="toggleOptions(index)">
+          <button class="options-button" @click="toggleOptions(index)">
             <font-awesome-icon icon="fa-solid fa-circle-xmark" />
           </button>
         </div>
@@ -33,6 +38,12 @@
           Optionen <font-awesome-icon icon="fa-solid fa-caret-down" />
         </button>
       </span>
+      <Alert
+        :alertName="headlineAlert"
+        @closeAlert="alertClose"
+        @confirmeTask="taskConfirme(index)"
+        v-if="alert"
+      />
     </div>
     <div class="createcustomer-container">
       <router-link to="/createcustomer">
@@ -40,12 +51,6 @@
       </router-link>
     </div>
   </div>
-  <Alert
-    :alertName="headlineAlert"
-    @closeAlert="alertClose"
-    @confirmeTask="taskConfirme(index)"
-    v-if="alert"
-  />
   <SuccessAlert v-if="showSuccess" />
 </template>
 
@@ -134,9 +139,13 @@ export default {
     justify-content: space-between;
     padding: 0 1rem 0 1rem;
     margin: 0.5rem 0;
+    height: 3rem;
     width: 90%;
 
     .customer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 100%;
       width: 100%;
       background: #757575;
@@ -144,7 +153,11 @@ export default {
       cursor: pointer;
 
       button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 1rem 1rem;
+        gap: 0.5rem;
         height: 100%;
         width: 100%;
         background: #757575;
@@ -155,10 +168,23 @@ export default {
         &:hover {
           background: #cccccc;
         }
+      }
 
-        a {
-          text-decoration: none;
-          color: white;
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 100%;
+        width: 100%;
+        background: #757575;
+        border: none;
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          background: #cccccc;
         }
       }
     }
@@ -172,6 +198,11 @@ export default {
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      width: 100%;
+
+      .options-button {
+        width: 100%;
+      }
     }
   }
 
