@@ -7,6 +7,7 @@
         @showTrainingsweek="toggleTrainingsweek"
         @showMessages="toggleMessages"
         @showEdit="toggleEdit"
+        @showNutrition="toggleNutrition"
       />
     </header>
     <div class="box">
@@ -18,6 +19,10 @@
       </div>
       <div class="section" v-if="containerEdit">
         <Bearbeiten />
+      </div>
+      <div class="nutririon" v-if="containerNutrition">
+        <h1>Ernährung</h1>
+        <p>comming soon!</p>
       </div>
     </div>
   </div>
@@ -46,7 +51,7 @@ export default {
       containerTrainingsweek: true,
       containerMessages: false,
       containerEdit: false,
-      activeSection: "trainings", // Anfangsabschnitt (kann auf "messages" oder "section3" geändert werden)
+      containerNutrition: false,
     };
   },
   created() {
@@ -68,16 +73,25 @@ export default {
       this.containerTrainingsweek = true;
       this.containerMessages = false;
       this.containerEdit = false;
+      this.containerNutrition = false;
     },
     toggleMessages() {
       this.containerTrainingsweek = false;
       this.containerMessages = true;
       this.containerEdit = false;
+      this.containerNutrition = false;
     },
     toggleEdit() {
       this.containerTrainingsweek = false;
       this.containerMessages = false;
       this.containerEdit = true;
+      this.containerNutrition = false;
+    },
+    toggleNutrition() {
+      this.containerTrainingsweek = false;
+      this.containerMessages = false;
+      this.containerEdit = false;
+      this.containerNutrition = true;
     },
   },
 };

@@ -29,18 +29,27 @@
           <div class="line" :class="{ activeOne: isActiveThree }"></div>
         </button>
       </li>
+      <li>
+        <button @click="nutrition">
+          <span>
+            <font-awesome-icon icon="fa-solid fa-apple-whole" class="icon" />
+            Ernährung
+          </span>
+          <div class="line" :class="{ activeOne: isActivefoure }"></div>
+        </button>
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import { faL } from "@fortawesome/free-solid-svg-icons";
 export default {
   data() {
     return {
       isActiveOne: true,
       isActiveTwo: false,
       isActiveThree: false,
+      isActivefoure: false,
     };
   },
   methods: {
@@ -48,19 +57,29 @@ export default {
       this.isActiveOne = true;
       this.isActiveTwo = false;
       this.isActiveThree = false;
+      this.isActivefoure = false;
       this.$emit("showTrainingsweek");
     },
     messages() {
       this.isActiveOne = false;
       this.isActiveTwo = true;
       this.isActiveThree = false;
+      this.isActivefoure = false;
       this.$emit("showMessages");
     },
     edit() {
       this.isActiveOne = false;
       this.isActiveTwo = false;
       this.isActiveThree = true;
+      this.isActivefoure = false;
       this.$emit("showEdit");
+    },
+    nutrition() {
+      this.isActiveOne = false;
+      this.isActiveTwo = false;
+      this.isActiveThree = false;
+      this.isActivefoure = true;
+      this.$emit("showNutrition");
     },
   },
 };
