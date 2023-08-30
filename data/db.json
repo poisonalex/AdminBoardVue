@@ -1,0 +1,12 @@
+{
+  "customers": [
+    {
+      "name": "Paul Ehrling",
+      "id": 0,
+      "trainingsweek": ["Krafttraining", "Ausdauertraining"]
+    },
+    { "name": "Alex Ehrling", "id": 1 },
+    { "name": "Mario Super", "id": 2 },
+    { "name": "James Bond", "id": 3 }
+  ]
+}
