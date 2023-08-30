@@ -1,5 +1,56 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-createApp(App).use(router).mount('#app')
+/* import the fontawesome core */
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* import specific icons */
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarWeek } from "@fortawesome/free-solid-svg-icons";
+import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+
+/* add icons to the library */
+library.add(
+  faHouse,
+  faPlus,
+  faBars,
+  faArrowRightFromBracket,
+  faCaretDown,
+  faGear,
+  faTrash,
+  faPenToSquare,
+  faCircleXmark,
+  faXmark,
+  faAnglesLeft,
+  faEllipsisVertical,
+  faDumbbell,
+  faPaperPlane,
+  faCalendarWeek,
+  faDeleteLeft,
+  faChevronDown,
+  faChevronUp,
+);
+
+createApp(App)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .use(router)
+  .mount("#app");

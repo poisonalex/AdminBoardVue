@@ -1,30 +1,43 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <NavBarSide />
+  <router-view />
 </template>
 
-<style>
+<script>
+import NavBarSide from "./components/NavSideBar/NavBarSide.vue";
+import { sidebarWidth } from "./components/NavSideBar/state";
+
+export default {
+  name: "dashboard",
+  components: { NavBarSide },
+  props: {},
+  setup() {
+    return {
+      sidebarWidth,
+    };
+  },
+};
+</script>
+
+<style lang="scss">
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #4d4d4d;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
