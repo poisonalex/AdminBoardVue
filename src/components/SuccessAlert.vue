@@ -19,6 +19,8 @@ export default {
 .success {
   position: absolute;
   bottom: 0;
+  left: 50%;
+  z-index: 1000;
   text-align: center;
   width: max-content;
   border-radius: 6px;
