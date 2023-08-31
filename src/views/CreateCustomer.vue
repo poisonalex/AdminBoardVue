@@ -274,8 +274,15 @@ export default {
     };
   },
   methods: {
+    //locasstorage start
+    storeCreateData() {
+      localStorage.getItem("createData", JSON.stringify(this.warupQuestions));
+    },
+    //locasstorage end
     taskConfirme() {
       this.showSuccess = true;
+      //locasstorage
+      this.storeCreateData();
 
       this.timer = setTimeout(() => {
         this.showSuccess = false;
