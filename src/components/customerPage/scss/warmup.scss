@@ -1,0 +1,83 @@
+.warmup {
+  position: relative;
+  flex-direction: column;
+  padding: 1rem 0 1rem 0;
+  gap: 1rem;
+  width: 100%;
+
+  .save-warmup {
+    padding: 0.5rem 0.5rem;
+    width: 150px;
+    background: #00688b;
+    border: none;
+    border-radius: 24px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    &:hover {
+      background: #0095c5;
+    }
+  }
+
+  .warmup-beschreibung {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-right: #4d4d4d solid;
+
+    textarea {
+      height: 10rem;
+      width: 90%;
+      background: #cccccc;
+      resize: none;
+    }
+  }
+
+  .warmup-uebungen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+
+    span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+
+      h4 {
+        margin: 0;
+        width: 100%;
+        border-bottom: #4d4d4d solid;
+      }
+
+      input {
+        background: #cccccc;
+        border: none;
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.5rem;
+        height: 2rem;
+        width: 2rem;
+        background: #00688b;
+        border: none;
+        border-radius: 24px;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        &:hover {
+          background: #0095c5;
+        }
+      }
+    }
+  }
+}
