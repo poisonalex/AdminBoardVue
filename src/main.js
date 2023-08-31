@@ -34,6 +34,9 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { faFireFlameCurved } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
 library.add(
@@ -62,6 +65,9 @@ library.add(
   faDownload,
   faAppleWhole,
   faBook,
+  faFireFlameCurved,
+  faMinus,
+  faFileLines,
 );
 
 createApp(App)

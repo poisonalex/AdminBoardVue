@@ -15,7 +15,7 @@
         <TrainingsWeek :trainingsWeekData="customers" />
       </div>
       <div class="section" v-if="containerMessages">
-        <Messages :messagesData="customers" />
+        <Messages :messagesData="customers.messages" />
       </div>
       <div class="section" v-if="containerEdit">
         <Bearbeiten />
@@ -25,15 +25,19 @@
         <p>comming soon!</p>
       </div>
     </div>
+    <div class="trainingdays" v-if="!containerNutrition">
+      <TrainingDays :trainngDayData="customers.trainingdays" />
+    </div>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
-import Navbar from "@/components/customerSide/Navbar.vue";
-import Messages from "@/components/customerSide/Messages.vue";
-import TrainingsWeek from "@/components/customerSide/TrainingsWeek.vue";
-import Bearbeiten from "@/components/customerSide/Bearbeiten.vue";
+import Navbar from "@/components/customerPage/Navbar.vue";
+import Messages from "@/components/customerPage/Messages.vue";
+import TrainingsWeek from "@/components/customerPage/TrainingsWeek.vue";
+import Bearbeiten from "@/components/customerPage/Bearbeiten.vue";
+import TrainingDays from "@/components/customerPage/TrainingDays.vue";
 
 export default {
   components: {
@@ -42,6 +46,7 @@ export default {
     Messages,
     TrainingsWeek,
     Bearbeiten,
+    TrainingDays,
   },
   data() {
     return {
@@ -127,8 +132,9 @@ export default {
 
   .box {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 1rem 0;
-    height: 20rem;
+    height: 26rem;
     width: 100%;
     border: none;
     border-radius: 24px;
@@ -137,6 +143,10 @@ export default {
       @include center();
       width: 100%;
     }
+  }
+
+  .trainingdays {
+    width: 100%;
   }
 }
 </style>
