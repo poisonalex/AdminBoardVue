@@ -12,7 +12,55 @@
         "",
         ""
       ],
-      "messages": ["Ich bugge immer noch etwas tum ;D"]
+      "messages": [
+        "Ich bugge immer noch etwas tum ;D",
+        "ich auch >_<",
+        "und ich erst",
+        "ich will auch mal"
+      ],
+      "trainingdays": [
+        {
+          "day": "Dienstag",
+          "headline": "Oberkörper",
+          "exercise": [
+            "Bankdrücken",
+            "PecFlys",
+            "Schulterdrücken",
+            "ReverseFlys",
+            "Latzug",
+            "enges Rudern",
+            "Trizepsdrücken",
+            "Bizepscurls"
+          ]
+        },
+        {
+          "day": "Donnerstag",
+          "headline": "Unterkörper",
+          "exercise": [
+            "Trizepsdrücken",
+            "Bizepscurls",
+            "Kniebeuge",
+            "Kreuzheben",
+            "LegExtention",
+            "LegCurls",
+            "Wadenheben"
+          ]
+        },
+        {
+          "day": "Freitag",
+          "headline": "Ganzkörper",
+          "exercise": [
+            "Chestpress",
+            "PecFlys",
+            "Seitheben",
+            "Latzug",
+            "breites Rudern",
+            "Legpress",
+            "Trizepsdrücken",
+            "Bizepscurls"
+          ]
+        }
+      ]
     },
     {
       "name": "Alex Ehrling",
