@@ -3,6 +3,8 @@
     {
       "name": "Paul Ehrling",
       "id": 0,
+      "checkinActive": true,
+      "alreadyActive": false,
       "trainingsweek": [
         "",
         "Krafttraining",
@@ -65,6 +67,8 @@
     {
       "name": "Alex Ehrling",
       "id": 1,
+      "checkinActive": false,
+      "alreadyActive": false,
       "trainingsweek": [
         "",
         "Krafttraining",
@@ -78,6 +82,8 @@
     {
       "name": "Mario Super",
       "id": 2,
+      "checkinActive": false,
+      "alreadyActive": false,
       "trainingsweek": [
         "Krafttraining",
         "Ausdauertraining",
@@ -91,6 +97,8 @@
     {
       "name": "James Bond",
       "id": 3,
+      "checkinActive": false,
+      "alreadyActive": true,
       "trainingsweek": [
         "Schwimmtraining",
         "Krafttraining",
